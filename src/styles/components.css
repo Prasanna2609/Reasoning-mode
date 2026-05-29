@@ -602,32 +602,7 @@
   font-size: 15px;
 }
 
-/* Tooltip on hover */
-.oos-item {
-  position: relative;
-}
-
-.oos-item::after {
-  content: attr(data-tip);
-  position: absolute;
-  left: calc(100% + 8px);
-  top: 50%;
-  transform: translateY(-50%);
-  background: #1e1e1e;
-  border: 1px solid var(--border2);
-  color: var(--text2);
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  white-space: nowrap;
-  z-index: 50;
-  pointer-events: none;
-  display: none;
-}
-
-.oos-item:hover::after {
-  display: block;
-}
+/* Native tooltips now used via title attribute */
 
 .sb-section-label {
   font-family: 'IBM Plex Mono', monospace;
@@ -667,19 +642,35 @@
   color: var(--text2);
 }
 
-.sb-trash-icon {
+.sb-recent-row {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sb-recent-row .sb-recent {
+  flex: 1;
+}
+
+.sb-recent-delete {
   display: none;
+  background: none;
+  border: none;
   color: var(--text3);
-  font-size: 13px;
-  margin-left: 8px;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 14px;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
-.sb-recent-item:hover .sb-trash-icon {
-  display: block;
-}
-
-.sb-trash-icon:hover {
+.sb-recent-delete:hover {
   color: var(--red);
+  background: rgba(255, 69, 69, 0.1);
+}
+
+.sb-recent-row:hover .sb-recent-delete {
+  display: block;
 }
 
 .sb-bottom-section {
@@ -738,14 +729,14 @@
   border: 1px solid rgba(222, 115, 86, 0.3);
 }
 
-.sb-user-row {
+.sb-user {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 4px;
+  padding: 4px 4px;
 }
 
-.sb-user-avatar {
+.sb-avatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -771,13 +762,8 @@
   line-height: 1.2;
 }
 
-.sb-user-badge {
+.sb-user-sub {
   font-size: 10px;
-  color: var(--text3);
-}
-
-.sb-user-chevron {
-  font-size: 14px;
   color: var(--text3);
 }
 

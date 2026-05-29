@@ -60,27 +60,27 @@ export default function Sidebar({
       {/* SECTION 3: Nav items */}
       <div className="sb-nav-section-container">
         <div className="sb-nav-group">
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-search"></i>
             <span>Search</span>
           </div>
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-messages"></i>
             <span>Chats</span>
           </div>
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-folder"></i>
             <span>Projects</span>
           </div>
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-sparkles"></i>
             <span>Ask</span>
           </div>
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-box"></i>
             <span>Artifacts</span>
           </div>
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-settings-2"></i>
             <span>Customize</span>
           </div>
@@ -88,11 +88,11 @@ export default function Sidebar({
 
         <div className="sb-section-label">Products</div>
         <div className="sb-nav-group">
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-code"></i>
             <span>Code</span>
           </div>
-          <div className="oos-item sb-nav-item" data-tip="Out of scope">
+          <div className="oos-item sb-nav-item" title="Out of scope">
             <i className="ti-brush"></i>
             <span>Design</span>
           </div>
@@ -101,24 +101,21 @@ export default function Sidebar({
         <div className="sb-section-label">Recents</div>
         <div className="sb-recents-group">
           {conversations.length > 0 ? conversations.slice(0,5).map(conv => (
-            <div 
-              key={conv.id}
-              className={`sb-recent-item sb-recent ${
-                getCurrentConvId() === conv.id ? 'active cur' : ''
-              }`}
-              onClick={() => onLoadConversation?.(conv.id)}
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-            >
-              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <div className="sb-recent-row" key={conv.id}>
+              <div
+                className={`sb-recent-item sb-recent ${getCurrentConvId() === conv.id ? 'active cur' : ''}`}
+                onClick={() => onLoadConversation?.(conv.id)}
+              >
                 {conv.title}
-              </span>
-              <i 
-                className="ti-trash sb-trash-icon" 
+              </div>
+              <button
+                className="sb-recent-delete"
                 onClick={(e) => {
                   e.stopPropagation();
                   deleteConversation(conv.id);
                 }}
-              ></i>
+                aria-label="Delete chat"
+              >×</button>
             </div>
           )) : (
             <div className="sb-recent-item sb-recent" style={{fontStyle:'italic'}}>
@@ -146,9 +143,13 @@ export default function Sidebar({
         </div>
 
         {/* User Row */}
-        <div className="sb-user-row" style={{ flexDirection: 'column', alignItems: 'center', gap: '4px', paddingTop: '12px' }}>
-          <div className="sb-user-avatar">P</div>
-          <div style={{ fontSize: '13px', color: 'var(--text2)' }}>You</div>
+        <div className="sb-user">
+          <div className="sb-avatar">P</div>
+          <div className="sb-user-info">
+            <div className="sb-user-name">You</div>
+            <div className="sb-user-sub">Pro</div>
+          </div>
+          <i className="ti ti-dots" aria-hidden="true" style={{fontSize:'14px', color:'var(--text3)', marginLeft:'auto'}}></i>
         </div>
       </div>
 
