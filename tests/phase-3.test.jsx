@@ -15,7 +15,7 @@ describe('Phase 3 - Directed Mode Structure Tests', () => {
         setActiveScenario={() => {}}
       />
     );
-    const title = screen.getByRole('heading', { name: 'Reasoning Layer' });
+    const title = screen.getByRole('heading', { name: 'Reasoning Mode' });
     expect(title).toBeInTheDocument();
   });
 

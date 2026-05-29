@@ -29,12 +29,24 @@ export default function Sidebar({
     };
   }, []);
 
+  function deleteConversation(id) {
+    const all = getConversations().filter(
+      c => c.id !== id
+    );
+    localStorage.setItem('rl_conversations', 
+      JSON.stringify(all));
+    setConversations(all);
+    if (getCurrentConvId() === id) {
+      onNewChat?.();
+    }
+  }
+
   return (
     <aside className="sb-redesign">
       {/* SECTION 1: Logo */}
       <div className="sb-logo-section">
         <div className="sb-logo-icon">✳</div>
-        <h2 className="sb-logo-title">Reasoning Layer</h2>
+        <h2 className="sb-logo-title">Reasoning Mode</h2>
       </div>
 
       {/* SECTION 2: New Chat button */}
@@ -95,8 +107,18 @@ export default function Sidebar({
                 getCurrentConvId() === conv.id ? 'active cur' : ''
               }`}
               onClick={() => onLoadConversation?.(conv.id)}
+              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
             >
-              {conv.title}
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {conv.title}
+              </span>
+              <i 
+                className="ti-trash sb-trash-icon" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteConversation(conv.id);
+                }}
+              ></i>
             </div>
           )) : (
             <div className="sb-recent-item sb-recent" style={{fontStyle:'italic'}}>
@@ -124,13 +146,9 @@ export default function Sidebar({
         </div>
 
         {/* User Row */}
-        <div className="sb-user-row">
+        <div className="sb-user-row" style={{ flexDirection: 'column', alignItems: 'center', gap: '4px', paddingTop: '12px' }}>
           <div className="sb-user-avatar">P</div>
-          <div className="sb-user-info">
-            <div className="sb-user-name">Prasanna</div>
-            <div className="sb-user-badge">Pro</div>
-          </div>
-          <i className="ti-chevron-up sb-user-chevron"></i>
+          <div style={{ fontSize: '13px', color: 'var(--text2)' }}>You</div>
         </div>
       </div>
 
