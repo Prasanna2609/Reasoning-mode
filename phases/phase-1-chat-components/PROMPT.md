@@ -1,0 +1,1 @@
+Build all visual chat pieces: chat window with decorative header, user and assistant message bubbles, inline highlight span classes for the three reasoning element types, the legend bar, and the gap section CSS.

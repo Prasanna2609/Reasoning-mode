@@ -1,0 +1,170 @@
+/* components.css - components styles */
+
+.chat-container-wrap {
+  width: 90%;
+  max-width: 800px;
+  padding: 40px 0;
+}
+
+/* ChatWindow Styles */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  width: 100%;
+}
+
+.chat-header {
+  background-color: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.chat-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.chat-dot.red { background-color: #FF5F57; }
+.chat-dot.yellow { background-color: #FEBC2E; }
+.chat-dot.green { background-color: #28C840; }
+
+.chat-header-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+
+.chat-body {
+  background-color: var(--bg3);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* MessageBubble Styles */
+.msg-container-user {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.msg-bubble-user {
+  background-color: var(--adim);
+  border: 1px solid var(--aborder);
+  border-radius: 10px 10px 2px 10px;
+  padding: 9px 14px;
+  max-width: 72%;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.msg-container-assistant {
+  width: 100%;
+}
+
+.msg-label-assistant {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 5px;
+}
+
+.msg-bubble-assistant {
+  background-color: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 2px 10px 10px 10px;
+  padding: 13px 16px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* HighlightedResponse Styles */
+.rl-inference {
+  background: var(--rdim);
+  border-bottom: 1.5px solid var(--red);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.rl-assumption {
+  background: var(--adim);
+  border-bottom: 1.5px solid var(--amber);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.rl-dependency {
+  background: var(--bdim);
+  border-bottom: 1.5px solid var(--blue);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* LegendBar Styles */
+.legend-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--bg4);
+  border-top: 1px solid var(--border);
+  padding: 8px 16px;
+  gap: 18px;
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.legend-swatch.amber { background-color: var(--amber); }
+.legend-swatch.red { background-color: var(--red); }
+.legend-swatch.blue { background-color: var(--blue); }
+
+.legend-label {
+  font-size: 11px;
+  color: var(--text2);
+}
+
+/* Gap section Styles */
+.gap-section {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  line-height: 1.6;
+}
+
+.gap-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}

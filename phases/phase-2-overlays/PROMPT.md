@@ -1,0 +1,1 @@
+Build the three overlay components: collapsible reasoning panel with colour-coded element rows, nudge card with activate and dismiss buttons, and change receipt card with changed, unchanged, and still-open sections.

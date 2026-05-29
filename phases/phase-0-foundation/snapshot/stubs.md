@@ -1,0 +1,13 @@
+src/components/DirectedMode.jsx
+src/components/LiveMode.jsx
+src/components/ChatWindow.jsx
+src/components/MessageBubble.jsx
+src/components/HighlightedResponse.jsx
+src/components/NudgeCard.jsx
+src/components/ReasoningPanel.jsx
+src/components/ChangeReceipt.jsx
+src/components/LegendBar.jsx
+src/utils/api.js
+src/utils/quoteMatch.js
+src/utils/correctionDetect.js
+src/utils/storage.js

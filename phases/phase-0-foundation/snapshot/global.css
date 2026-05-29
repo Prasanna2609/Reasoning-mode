@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+
+:root {
+  /* Backgrounds */
+  --bg: #0A0A0A;
+  --bg2: #111;
+  --bg3: #181818;
+  --bg4: #1e1e1e;
+
+  /* Borders */
+  --border: #222;
+  --border2: #2a2a2a;
+
+  /* Amber — Assumption */
+  --amber: #F0A500;
+  --adim: rgba(240, 165, 0, 0.12);
+  --aborder: rgba(240, 165, 0, 0.3);
+
+  /* Red — Inference */
+  --red: #FF4545;
+  --rdim: rgba(255, 69, 69, 0.12);
+  --rborder: rgba(255, 69, 69, 0.3);
+
+  /* Blue — Dependency */
+  --blue: #4A9EFF;
+  --bdim: rgba(74, 158, 255, 0.12);
+  --bborder: rgba(74, 158, 255, 0.3);
+
+  /* Green — Change receipt */
+  --green: #00C48C;
+  --gdim: rgba(0, 196, 140, 0.1);
+  --gborder: rgba(0, 196, 140, 0.28);
+
+  /* Text */
+  --text: #E8E8E8;
+  --text2: #888;
+  --text3: #555;
+
+  /* Layout */
+  --sidebar-width: 240px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--bg2);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.placeholder-icon {
+  color: var(--amber);
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.placeholder-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--text);
+  margin: 0;
+}
