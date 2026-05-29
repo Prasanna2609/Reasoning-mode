@@ -45,29 +45,41 @@ async function callAPI(systemPrompt, messages) {
 }
 
 function safeParseJSON(raw) {
+  if (!raw) return null;
+  
+  // Try direct parse first
+  try { return JSON.parse(raw.trim()); } catch(e) {}
+  
+  // Extract JSON object from mixed content
+  // (handles model outputting text before/after JSON)
   try {
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
+    const start = raw.indexOf('{');
+    const end = raw.lastIndexOf('}');
+    if (start !== -1 && end !== -1 && end > start) {
+      const jsonStr = raw.slice(start, end + 1);
+      return JSON.parse(jsonStr);
+    }
+  } catch(e) {}
+  
+  return null;
 }
 
 // ─── Exported API functions ───────────────────────────────────────────────────
 
 export async function generateResponse(messages) {
   const systemPrompt =
-    "You are a helpful assistant. When your response " +
-    "contains a recommendation, a number used as evidence, " +
-    "a percentage, a benchmark, or a course of action — " +
-    "set evaluative to true. Format your response in " +
-    "short paragraphs of 2-3 sentences each. Never write " +
-    "a single wall-of-text paragraph. Use line breaks " +
-    "between distinct points. Keep responses concise and " +
-    "direct — under 200 words where possible. Always " +
-    "return ONLY valid JSON with no markdown, no preamble:\n" +
-    "{\"evaluative\": true, \"response\": \"your response\"} \n" +
-    "For non-evaluative responses return:\n" +
-    "{\"evaluative\": false, \"response\": \"your response\"}";
+    "IMPORTANT: Output ONLY a raw JSON object. No text " +
+    "before it. No text after it. No explanation. No " +
+    "preamble. Your entire response must start with { " +
+    "and end with }. When your response contains a " +
+    "recommendation, number used as evidence, percentage, " +
+    "benchmark, or course of action — set evaluative " +
+    "to true. Format the response field in short " +
+    "paragraphs of 2-3 sentences. Keep under 200 words. " +
+    "Return exactly:\n" +
+    "{\"evaluative\": true, \"response\": \"text here\"}\n" +
+    "or:\n" +
+    "{\"evaluative\": false, \"response\": \"text here\"}";
 
   const raw = await callAPI(systemPrompt, messages);
   const parsed = safeParseJSON(raw);
@@ -83,6 +95,8 @@ export async function generateResponse(messages) {
 
 export async function analyseResponse(userMessage, responseText) {
   const systemPrompt =
+    "IMPORTANT: Output ONLY a raw JSON object. No text " +
+    "before it. No text after it. Start with { end with }.\n" +
     "You receive a user message and an AI response. " +
     "Return ONLY valid JSON, no markdown, no preamble.\n\n" +
     "RULES FOR QUALITY:\n" +
@@ -139,6 +153,8 @@ export async function analyseResponse(userMessage, responseText) {
 
 export async function correctResponse(originalResponse, correction) {
   const systemPrompt =
+    "IMPORTANT: Output ONLY a raw JSON object. No text " +
+    "before it. No text after it. Start with { end with }.\n" +
     'The user is correcting a recommendation. Update it based on their correction. ' +
     'Return ONLY valid JSON, no markdown:\n' +
     '{"response":"updated recommendation","change_receipt":' +
