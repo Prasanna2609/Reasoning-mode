@@ -12,6 +12,7 @@ export default function Sidebar({
   const [conversations, setConversations] = useState(
     () => getConversations()
   );
+  const [tooltip, setTooltip] = useState(null);
 
   useEffect(() => {
     function handleStorage() {
@@ -43,8 +44,12 @@ export default function Sidebar({
     <aside className="sb-redesign">
       {/* SECTION 1: Logo */}
       <div className="sb-logo-section">
-        <div className="sb-logo-icon">✳</div>
-        <h2 className="sb-logo-title">Reasoning Mode</h2>
+        <div className="sb-eyebrow" style={{fontSize: '10px', textTransform: 'uppercase', color: '#888', letterSpacing: '0.5px', marginBottom: '4px', fontWeight: 600}}>Claude · Evaluation Support</div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="sb-logo-icon">✳</div>
+          <h2 className="sb-logo-title" style={{ margin: 0, padding: 0 }}>Reasoning Mode</h2>
+        </div>
+        <div className="sb-subtitle" style={{fontSize: '12px', color: '#888', marginTop: '4px'}}>Equipping the review moment</div>
       </div>
 
       {/* SECTION 2: New Chat button */}
@@ -58,27 +63,69 @@ export default function Sidebar({
       {/* SECTION 3: Nav items */}
       <div className="sb-nav-section-container">
         <div className="sb-nav-group">
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-search"></i>
             <span>Search</span>
           </div>
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-messages"></i>
             <span>Chats</span>
           </div>
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-folder"></i>
             <span>Projects</span>
           </div>
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-sparkles"></i>
             <span>Ask</span>
           </div>
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-box"></i>
             <span>Artifacts</span>
           </div>
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-settings-2"></i>
             <span>Customize</span>
           </div>
@@ -86,11 +133,25 @@ export default function Sidebar({
 
         <div className="sb-section-label">Products</div>
         <div className="sb-nav-group">
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-code"></i>
             <span>Code</span>
           </div>
-          <div className="sb-nav-item oos-item" data-tip="Out of scope">
+          <div className="sb-nav-item"
+            onMouseEnter={(e) => setTooltip({
+              x: e.currentTarget.getBoundingClientRect().right,
+              y: e.currentTarget.getBoundingClientRect().top + 
+                 e.currentTarget.getBoundingClientRect().height/2
+            })}
+            onMouseLeave={() => setTooltip(null)}
+          >
             <i className="ti-brush"></i>
             <span>Design</span>
           </div>
@@ -156,6 +217,24 @@ export default function Sidebar({
           </div>
         )}
       </div>
+
+      {tooltip && (
+        <div style={{
+          position:'fixed',
+          left: tooltip.x + 8,
+          top: tooltip.y,
+          transform: 'translateY(-50%)',
+          background: '#1e1e1e',
+          border: '1px solid #2a2a2a',
+          color: '#888',
+          padding: '3px 8px',
+          borderRadius: '5px',
+          fontSize: '11px',
+          whiteSpace: 'nowrap',
+          zIndex: 1000,
+          pointerEvents: 'none'
+        }}>Out of scope</div>
+      )}
     </aside>
   );
 }

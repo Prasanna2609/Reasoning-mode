@@ -153,18 +153,6 @@ export default function DirectedMode({ activeScenario, setActiveScenario = () =>
             <h3 className="journey-title">{currentScenario.name}</h3>
             <span className="journey-step-label">Step {activeStep}</span>
 
-            {/* Step Progress Dots */}
-            <div className="journey-progress-dots">
-              {[0, 1, 2, 3].map((dotIdx) => {
-                const status = getProgressDotStatus(dotIdx);
-                return (
-                  <div
-                    key={dotIdx}
-                    className={`progress-dot ${status}`}
-                  ></div>
-                );
-              })}
-            </div>
           </header>
 
           {/* Scenario 0 Flow rendering */}
@@ -184,6 +172,21 @@ export default function DirectedMode({ activeScenario, setActiveScenario = () =>
                         <HighlightedResponse html={currentStep.responseHTML} />
                       ) : (
                         currentStep.responseText
+                      )}
+
+                      {currentStep.showInactiveNotice && currentStep.inactiveNoticeText && (
+                        <div style={{
+                          padding: '12px 16px',
+                          background: 'rgba(74,158,255,0.06)',
+                          border: '1px solid rgba(74,158,255,0.15)',
+                          borderRadius: '6px',
+                          fontSize: '12px',
+                          color: 'var(--text2)',
+                          lineHeight: '1.6',
+                          marginTop: '8px'
+                        }}>
+                          {currentStep.inactiveNoticeText}
+                        </div>
                       )}
 
                       {/* Gap section */}
@@ -237,63 +240,156 @@ export default function DirectedMode({ activeScenario, setActiveScenario = () =>
               {/* Input bar section */}
               <div className="journey-input-section">
                 {activeStep === 0 && (
-                  <div className="journey-prefill-bar">
-                    <span className="prefill-text">
+                  <div style={{ background: '#111', border: '1px solid #2a2a2a', borderRadius: '14px', padding: '10px 14px' }}>
+                    <div style={{ fontStyle: 'italic', color: '#888', fontSize: '14px', lineHeight: '1.5', minHeight: '44px' }}>
                       "My startup has 9 engineers. We've missed our last 3 sprints. Should I let go of 2 under-performers or hire a senior engineer?"
-                    </span>
-                    <button
-                      className="prefill-send-btn pulsing"
-                      onClick={() => setActiveStep(1)}
-                      aria-label="Send prefilled query"
-                    >
-                      <i className="ti-arrow-up"></i>
-                    </button>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <button style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#1e1e1e', border: '1px solid #2a2a2a', color: '#888', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>+</button>
+                        <button style={{ width: '28px', height: '28px', borderRadius: '6px', background: 'rgba(74,158,255,0.15)', border: '1px solid rgba(74,158,255,0.25)', color: '#4A9EFF', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9" /><path d="M4 11h16" /><path d="M6 7h12" /><path d="M8 3h8" /></svg>
+                        </button>
+                      </div>
+                      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <div style={{ width: '32px', height: '18px', borderRadius: '18px', background: 'var(--cl)', position: 'relative' }}>
+                            <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: 'white', position: 'absolute', top: '2px', left: '16px', boxShadow: '0 1px 3px rgba(0,0,0,0.3)' }} />
+                          </div>
+                          <span style={{ fontSize: '13px', color: 'var(--cl)', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Reasoning Mode</span>
+                        </div>
+                        <div style={{ position: 'relative' }}>
+                          <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', cursor: 'default', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            Sonnet 4.6 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                        </div>
+                        <div style={{ position: 'relative' }}>
+                          <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', cursor: 'default', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            High <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                        </div>
+                        <button style={{ background: 'transparent', border: 'none', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'default', padding: '4px' }} aria-label="Decorative mic" aria-hidden="true"><i className="ti-microphone" style={{ fontSize: '20px' }}></i></button>
+                        <button className="prefill-send-btn pulsing" onClick={() => setActiveStep(1)} aria-label="Send query">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
 
                 {activeStep === 1 && (
                   <>
                     {notNowClicked ? (
-                      <div className="journey-prefill-bar">
-                        <span className="prefill-text">
-                          "Actually — I've tracked it. 2 engineers account for 70% of the missed tasks. The rest of the team is performing fine."
-                        </span>
-                        <button
-                          className="prefill-send-btn pulsing"
-                          onClick={() => setActiveStep(3)}
-                          aria-label="Send correction"
-                        >
-                          <i className="ti-arrow-up"></i>
+                      <div style={{ background: '#111', border: '1px solid #2a2a2a', borderRadius: '14px', padding: '10px 14px' }}>
+                    <div style={{ fontStyle: 'italic', color: '#888', fontSize: '14px', lineHeight: '1.5', minHeight: '44px' }}>
+                      "Actually — I've tracked it. 2 engineers account for 70% of the missed tasks. The rest of the team is performing fine."
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <button style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#1e1e1e', border: '1px solid #2a2a2a', color: '#888', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>+</button>
+                        <button style={{ width: '28px', height: '28px', borderRadius: '6px', background: 'rgba(74,158,255,0.15)', border: '1px solid rgba(74,158,255,0.25)', color: '#4A9EFF', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9" /><path d="M4 11h16" /><path d="M6 7h12" /><path d="M8 3h8" /></svg>
                         </button>
                       </div>
-                    ) : (
-                      <div className="journey-disabled-input-bar">
-                        <input
-                          type="text"
-                          className="disabled-chat-input"
-                          disabled
-                          placeholder="Activate above to continue…"
-                        />
-                        <button className="disabled-send-btn" disabled>
-                          Send
+                      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <div style={{ width: '32px', height: '18px', borderRadius: '18px', background: 'var(--cl)', position: 'relative' }}>
+                            <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: 'white', position: 'absolute', top: '2px', left: '16px', boxShadow: '0 1px 3px rgba(0,0,0,0.3)' }} />
+                          </div>
+                          <span style={{ fontSize: '13px', color: 'var(--cl)', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Reasoning Mode</span>
+                        </div>
+                        <div style={{ position: 'relative' }}>
+                          <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', cursor: 'default', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            Sonnet 4.6 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                        </div>
+                        <div style={{ position: 'relative' }}>
+                          <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', cursor: 'default', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            High <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                        </div>
+                        <button style={{ background: 'transparent', border: 'none', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'default', padding: '4px' }} aria-label="Decorative mic" aria-hidden="true"><i className="ti-microphone" style={{ fontSize: '20px' }}></i></button>
+                        <button className="prefill-send-btn pulsing" onClick={() => setActiveStep(3)} aria-label="Send query">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
                         </button>
+                      </div>
+                    </div>
+                  </div>
+                    ) : (
+                      <div style={{ background: '#111', border: '1px solid #2a2a2a', borderRadius: '14px', padding: '10px 14px', opacity: 0.5, pointerEvents: 'none' }}>
+                        <div style={{ fontStyle: 'italic', color: '#888', fontSize: '14px', lineHeight: '1.5', minHeight: '44px' }}>
+                          Activate above to continue…
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
+                          <div style={{ display: 'flex', gap: '6px' }}>
+                            <button style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#1e1e1e', border: '1px solid #2a2a2a', color: '#888', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>+</button>
+                            <button style={{ width: '28px', height: '28px', borderRadius: '6px', background: 'rgba(74,158,255,0.15)', border: '1px solid rgba(74,158,255,0.25)', color: '#4A9EFF', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9" /><path d="M4 11h16" /><path d="M6 7h12" /><path d="M8 3h8" /></svg>
+                            </button>
+                          </div>
+                          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <div style={{ width: '32px', height: '18px', borderRadius: '18px', background: '#444', position: 'relative' }}>
+                                <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: 'white', position: 'absolute', top: '2px', left: '2px' }} />
+                              </div>
+                              <span style={{ fontSize: '13px', color: '#888', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Reasoning Mode</span>
+                            </div>
+                            <div style={{ position: 'relative' }}>
+                              <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                Sonnet 4.6 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                              </button>
+                            </div>
+                            <div style={{ position: 'relative' }}>
+                              <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                High <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                              </button>
+                            </div>
+                            <button style={{ background: 'transparent', border: 'none', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px' }}><i className="ti-microphone" style={{ fontSize: '20px' }}></i></button>
+                            <button style={{ width: '34px', height: '34px', borderRadius: '10px', background: '#444', color: '#888', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </>
                 )}
 
                 {activeStep === 2 && (
-                  <div className="journey-prefill-bar">
-                    <span className="prefill-text">
+                  <div style={{ background: '#111', border: '1px solid #2a2a2a', borderRadius: '14px', padding: '10px 14px' }}>
+                    <div style={{ fontStyle: 'italic', color: '#888', fontSize: '14px', lineHeight: '1.5', minHeight: '44px' }}>
                       "Actually — I've tracked it. 2 engineers account for 70% of the missed tasks. The rest of the team is performing fine."
-                    </span>
-                    <button
-                      className="prefill-send-btn pulsing"
-                      onClick={() => setActiveStep(4)}
-                      aria-label="Send correction"
-                    >
-                      <i className="ti-arrow-up"></i>
-                    </button>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <button style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#1e1e1e', border: '1px solid #2a2a2a', color: '#888', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>+</button>
+                        <button style={{ width: '28px', height: '28px', borderRadius: '6px', background: 'rgba(74,158,255,0.15)', border: '1px solid rgba(74,158,255,0.25)', color: '#4A9EFF', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9" /><path d="M4 11h16" /><path d="M6 7h12" /><path d="M8 3h8" /></svg>
+                        </button>
+                      </div>
+                      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <div style={{ width: '32px', height: '18px', borderRadius: '18px', background: 'var(--cl)', position: 'relative' }}>
+                            <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: 'white', position: 'absolute', top: '2px', left: '16px', boxShadow: '0 1px 3px rgba(0,0,0,0.3)' }} />
+                          </div>
+                          <span style={{ fontSize: '13px', color: 'var(--cl)', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Reasoning Mode</span>
+                        </div>
+                        <div style={{ position: 'relative' }}>
+                          <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', cursor: 'default', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            Sonnet 4.6 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                        </div>
+                        <div style={{ position: 'relative' }}>
+                          <button style={{ background: 'transparent', border: 'none', color: '#888', fontSize: '13px', cursor: 'default', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            High <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                        </div>
+                        <button style={{ background: 'transparent', border: 'none', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'default', padding: '4px' }} aria-label="Decorative mic" aria-hidden="true"><i className="ti-microphone" style={{ fontSize: '20px' }}></i></button>
+                        <button className="prefill-send-btn pulsing" onClick={() => setActiveStep(4)} aria-label="Send query">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
 
