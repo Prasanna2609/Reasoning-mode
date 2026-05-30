@@ -118,6 +118,8 @@ describe('Phase 3 - Directed Mode Structure Tests', () => {
 
   it('DirectedMode renders NudgeCard when current step has showNudge true', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     const step1Btn = screen.getByRole('button', { name: 'Step 1' });
     fireEvent.click(step1Btn);
     expect(container.querySelector('.nudge-card')).toBeInTheDocument();
@@ -125,6 +127,8 @@ describe('Phase 3 - Directed Mode Structure Tests', () => {
 
   it('DirectedMode renders LegendBar when current step has showLayer true', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     const step2Btn = screen.getByRole('button', { name: 'Step 2' });
     fireEvent.click(step2Btn);
     expect(container.querySelector('.legend-bar')).toBeInTheDocument();
@@ -132,6 +136,8 @@ describe('Phase 3 - Directed Mode Structure Tests', () => {
 
   it('DirectedMode renders ChangeReceipt when current step has showReceipt true', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     const step4Btn = screen.getByRole('button', { name: 'Step 4' });
     fireEvent.click(step4Btn);
     expect(container.querySelector('.change-receipt')).toBeInTheDocument();

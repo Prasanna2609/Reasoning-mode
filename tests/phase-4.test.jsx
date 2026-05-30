@@ -51,6 +51,8 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
   // ── Rendering ────────────────────────────────────────────────────────
   it('DirectedMode renders NudgeCard when current step has showNudge true', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     const step1Btn = screen.getByRole('button', { name: 'Step 1' });
     fireEvent.click(step1Btn);
     expect(container.querySelector('.nudge-card')).toBeInTheDocument();
@@ -58,6 +60,8 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
 
   it('DirectedMode renders LegendBar when current step has showLayer true', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     const step2Btn = screen.getByRole('button', { name: 'Step 2' });
     fireEvent.click(step2Btn);
     expect(container.querySelector('.legend-bar')).toBeInTheDocument();
@@ -65,6 +69,8 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
 
   it('DirectedMode renders ChangeReceipt when current step has showReceipt true', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     const step4Btn = screen.getByRole('button', { name: 'Step 4' });
     fireEvent.click(step4Btn);
     expect(container.querySelector('.change-receipt')).toBeInTheDocument();
@@ -72,6 +78,8 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
 
   it('DirectedMode renders user message text in a bubble', () => {
     render(<DirectedMode activeScenario={0} />);
+    const card = screen.getByText('All four elements').closest('.scenario-card');
+    fireEvent.click(card);
     // Step 0 user message
     expect(screen.getByText(/Should I let go of 2 under-performers/)).toBeInTheDocument();
   });

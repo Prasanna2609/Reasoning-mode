@@ -66,15 +66,16 @@ const CARDS_DATA = [
   },
 ];
 
-export default function DirectedMode({ activeScenario, setActiveScenario }) {
+export default function DirectedMode({ activeScenario, setActiveScenario = () => {} }) {
   const [activeStep, setActiveStep] = useState(0);
-  const [journeyActive, setJourneyActive] = useState(true);
+  const [journeyStarted, setJourneyStarted] = useState(false);
   const [notNowClicked, setNotNowClicked] = useState(false);
 
   // Sync state and reset when scenario changes
   useEffect(() => {
     setActiveStep(0);
     setNotNowClicked(false);
+    setJourneyStarted(false);
   }, [activeScenario]);
 
   const currentScenario = scenarios[activeScenario] || scenarios[0];
@@ -84,11 +85,11 @@ export default function DirectedMode({ activeScenario, setActiveScenario }) {
     setActiveScenario(id);
     setActiveStep(0);
     setNotNowClicked(false);
-    setJourneyActive(true);
+    setJourneyStarted(true);
   };
 
   const handleBackToCards = () => {
-    setJourneyActive(false);
+    setJourneyStarted(false);
   };
 
   // Helper to map activeStep to 4 progress dots (0 to 3)
@@ -105,7 +106,7 @@ export default function DirectedMode({ activeScenario, setActiveScenario }) {
   return (
     <div className="directed-mode-container">
       {/* SCENARIO CARDS VIEW */}
-      {!journeyActive && (
+      {!journeyStarted && (
         <div className="scenario-cards-view">
           <h2 className="sc-view-title">Choose a scenario</h2>
           <p className="sc-view-subtitle">
@@ -141,7 +142,7 @@ export default function DirectedMode({ activeScenario, setActiveScenario }) {
       )}
 
       {/* JOURNEY VIEW */}
-      {journeyActive && (
+      {journeyStarted && (
         <div className="scenario-journey-view">
           {/* Journey Header */}
           <header className="journey-header">
@@ -171,7 +172,7 @@ export default function DirectedMode({ activeScenario, setActiveScenario }) {
             <div className="journey-chat-area-wrapper">
               <div className="journey-chat-messages">
                 {activeStep > 0 && (
-                  <ChatWindow modeLabel={currentStep.modeLabel}>
+                  <>
                     {/* User bubble 1 */}
                     <MessageBubble role="user">
                       {currentScenario.steps[0].userMessage}
@@ -229,7 +230,7 @@ export default function DirectedMode({ activeScenario, setActiveScenario }) {
                         )}
                       </>
                     )}
-                  </ChatWindow>
+                  </>
                 )}
               </div>
 

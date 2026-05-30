@@ -38,10 +38,7 @@ function makeMessage(role, content, extras = {}) {
   };
 }
 
-const LiveMode = forwardRef(function LiveMode({
-  reasoningMode: propReasoningMode,
-  setReasoningMode: propSetReasoningMode,
-}, ref) {
+const LiveMode = forwardRef(function LiveMode(props, ref) {
   const [convId, setConvId] = useState(() => {
     const existing = getCurrentConvId();
     if (existing && getConversationById(existing)) {
@@ -65,10 +62,7 @@ const LiveMode = forwardRef(function LiveMode({
   const [isGenerating, setIsGenerating] = useState(false);
   const [isAnalysing, setIsAnalysing] = useState(false);
 
-  // Fallback state if props are not provided (e.g. in tests)
-  const [localReasoningMode, setLocalReasoningMode] = useState(() => getReasoningMode());
-  
-  const isReasoningModeOn = propReasoningMode !== undefined ? propReasoningMode : localReasoningMode;
+  const [isReasoningModeOn, setIsReasoningModeOn] = useState(() => getReasoningMode());
 
   const messagesEndRef = useRef(null);
   const nudgeTimerRef = useRef(null);
@@ -82,12 +76,8 @@ const LiveMode = forwardRef(function LiveMode({
 
   function toggleReasoningMode() {
     const nextVal = !isReasoningModeOn;
-    if (propSetReasoningMode) {
-      propSetReasoningMode(nextVal);
-    } else {
-      setLocalReasoningMode(nextVal);
-      setReasoningModeStorage(nextVal);
-    }
+    setIsReasoningModeOn(nextVal);
+    setReasoningModeStorage(nextVal);
   }
 
   function updateMessage(id, updates) {
@@ -312,12 +302,8 @@ const LiveMode = forwardRef(function LiveMode({
   }
 
   function handleNudgeActivate(msgId, msgHtml, msgReasoningData, msgGaps) {
-    if (propSetReasoningMode) {
-      propSetReasoningMode(true);
-    } else {
-      setLocalReasoningMode(true);
-      setReasoningModeStorage(true);
-    }
+    setIsReasoningModeOn(true);
+    setReasoningModeStorage(true);
     updateMessage(msgId, {
       isHighlighted: true,
       html: msgHtml,

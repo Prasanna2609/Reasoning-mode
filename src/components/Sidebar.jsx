@@ -4,8 +4,6 @@ import { getConversations, getCurrentConvId } from '../utils/storage.js';
 export default function Sidebar({
   mode,
   setMode,
-  reasoningMode = false,
-  setReasoningMode = () => {},
   activeScenario = 0,
   setActiveScenario = () => {},
   onNewChat = () => {},
@@ -60,27 +58,27 @@ export default function Sidebar({
       {/* SECTION 3: Nav items */}
       <div className="sb-nav-section-container">
         <div className="sb-nav-group">
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-search"></i>
             <span>Search</span>
           </div>
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-messages"></i>
             <span>Chats</span>
           </div>
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-folder"></i>
             <span>Projects</span>
           </div>
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-sparkles"></i>
             <span>Ask</span>
           </div>
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-box"></i>
             <span>Artifacts</span>
           </div>
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-settings-2"></i>
             <span>Customize</span>
           </div>
@@ -88,11 +86,11 @@ export default function Sidebar({
 
         <div className="sb-section-label">Products</div>
         <div className="sb-nav-group">
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-code"></i>
             <span>Code</span>
           </div>
-          <div className="oos-item sb-nav-item" title="Out of scope">
+          <div className="sb-nav-item oos-item" data-tip="Out of scope">
             <i className="ti-brush"></i>
             <span>Design</span>
           </div>
@@ -127,20 +125,6 @@ export default function Sidebar({
 
       {/* SECTION 4: Bottom */}
       <div className="sb-bottom-section">
-        {/* Reasoning Mode Toggle Row */}
-        <div
-          className="sb-rm-toggle-row"
-          onClick={() => setReasoningMode(!reasoningMode)}
-          role="button"
-        >
-          <div className="sb-rm-toggle-left">
-            <i className="ti-layers-subtract"></i>
-            <span>Reasoning Mode</span>
-          </div>
-          <div className={`sb-rm-badge ${reasoningMode ? 'on' : 'off'}`}>
-            {reasoningMode ? 'ON' : 'OFF'}
-          </div>
-        </div>
 
         {/* User Row */}
         <div className="sb-user">

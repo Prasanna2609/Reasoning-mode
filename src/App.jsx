@@ -21,8 +21,6 @@ export default function App() {
       <Sidebar
         mode={mode}
         setMode={setMode}
-        reasoningMode={reasoningMode}
-        setReasoningMode={handleRMToggle}
         activeScenario={activeScenario}
         setActiveScenario={setActiveScenario}
         onNewChat={() => liveModeRef.current?.startNewChat()}
