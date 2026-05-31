@@ -44,12 +44,8 @@ export default function Sidebar({
     <aside className="sb-redesign">
       {/* SECTION 1: Logo */}
       <div className="sb-logo-section">
-        <div className="sb-eyebrow" style={{fontSize: '10px', textTransform: 'uppercase', color: '#888', letterSpacing: '0.5px', marginBottom: '4px', fontWeight: 600}}>Claude · Evaluation Support</div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div className="sb-logo-icon">✳</div>
-          <h2 className="sb-logo-title" style={{ margin: 0, padding: 0 }}>Reasoning Mode</h2>
-        </div>
-        <div className="sb-subtitle" style={{fontSize: '12px', color: '#888', marginTop: '4px'}}>Equipping the review moment</div>
+        <div className="sb-logo-icon">✳</div>
+        <h2 className="sb-logo-title">Reasoning Mode</h2>
       </div>
 
       {/* SECTION 2: New Chat button */}

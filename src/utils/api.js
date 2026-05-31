@@ -6,11 +6,6 @@ const MODEL = 'llama-3.3-70b-versatile';
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 
 async function callAPI(systemPrompt, messages) {
-  console.log(
-    'Key length:', import.meta.env.VITE_API_KEY?.length,
-    'Key prefix:', import.meta.env.VITE_API_KEY?.slice(0,7),
-    'Key suffix:', import.meta.env.VITE_API_KEY?.slice(-4)
-  );
   let response;
   try {
     response = await fetch(`${BASE_URL}/chat/completions`, {

@@ -1,0 +1,1128 @@
+
+ RUN  v1.6.0 /Users/prasannashinde/Reasoning mode
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > generateResponse with valid JSON returns object with evaluative and response fields
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > generateResponse with malformed JSON returns { evaluative: false, response: [raw string] }
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > generateResponse with missing response field returns { evaluative: false, response: '' }
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > analyseResponse with valid JSON returns object with all 4 arrays
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > analyseResponse with missing arrays defaults each to []
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > analyseResponse with malformed JSON returns all 4 arrays as []
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > correctResponse with valid JSON returns object with response and change_receipt
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+stdout | tests/phase-5.test.js > Phase 5 - API Layer Tests > correctResponse with malformed JSON returns default structure with empty arrays
+Key length: 56 Key prefix: gsk_GXk Key suffix: zZ9f
+
+ ✓ tests/phase-5.test.js  (12 tests) 53ms
+ ✓ tests/phase-7.test.jsx  (12 tests) 29ms
+ ✓ tests/phase-1.test.jsx  (11 tests) 55ms
+ ✓ tests/phase-2.test.jsx  (15 tests) 130ms
+ ✓ tests/phase-6.test.jsx  (20 tests) 117ms
+stdout | tests/phase-6.test.jsx > Phase 6 - quoteMatch utility > wraps exact match in span with rl-inference class
+QUOTE MATCH INPUT - responseText length: 46 elements count: 1
+Attempting match for quote: hire a senior engineer
+Match result tier: 1
+
+stdout | tests/phase-6.test.jsx > Phase 6 - quoteMatch utility > wraps exact match in span with rl-assumption class
+QUOTE MATCH INPUT - responseText length: 47 elements count: 1
+Attempting match for quote: systems problem not a people problem
+Match result tier: 1
+
+stdout | tests/phase-6.test.jsx > Phase 6 - quoteMatch utility > wraps exact match in span with rl-dependency class
+QUOTE MATCH INPUT - responseText length: 43 elements count: 1
+Attempting match for quote: Budget availability determines the outcome
+Match result tier: 1
+
+stdout | tests/phase-6.test.jsx > Phase 6 - quoteMatch utility > returns unmatched array for non-matching quote
+QUOTE MATCH INPUT - responseText length: 16 elements count: 1
+Attempting match for quote: completely nonexistent phrase xyz
+Match result tier: none
+
+stdout | tests/phase-6.test.jsx > Phase 6 - quoteMatch utility > handles empty reasoningData without throwing
+QUOTE MATCH INPUT - responseText length: 10 elements count: 0
+QUOTE MATCH INPUT - responseText length: 10 elements count: 0
+
+stderr | tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders NudgeCard when current step has showNudge true
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+    at invokeGuardedCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4277:31)
+    at invokeGuardedCallbackAndCatchFirstError (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4291:25)
+    at executeDispatch (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:9041:3) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLDivElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLDivElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLDivElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/dom/dist/events.js:19:20
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/pure.js:107:16
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/act-compat.js:47:24
+    at act (/Users/prasannashinde/Reasoning mode/node_modules/react/cjs/react.development.js:2512:16) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16) {
+  stackStr: 'TypeError: setActiveScenario is not a function\n' +
+    '    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)\n' +
+    '    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)\n' +
+    '    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)\n' +
+    '    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)\n' +
+    '    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)\n' +
+    '    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)\n' +
+    '    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)\n' +
+    '    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)\n' +
+    '    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)\n' +
+    '    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)',
+  nameStr: 'TypeError',
+  expected: 'undefined',
+  actual: 'undefined'
+}
+
+stderr | tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders LegendBar when current step has showLayer true
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+    at invokeGuardedCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4277:31)
+    at invokeGuardedCallbackAndCatchFirstError (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4291:25)
+    at executeDispatch (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:9041:3) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLDivElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLDivElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLDivElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/dom/dist/events.js:19:20
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/pure.js:107:16
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/act-compat.js:47:24
+    at act (/Users/prasannashinde/Reasoning mode/node_modules/react/cjs/react.development.js:2512:16) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16) {
+  stackStr: 'TypeError: setActiveScenario is not a function\n' +
+    '    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)\n' +
+    '    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)\n' +
+    '    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)\n' +
+    '    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)\n' +
+    '    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)\n' +
+    '    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)\n' +
+    '    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)\n' +
+    '    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)\n' +
+    '    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)\n' +
+    '    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)',
+  nameStr: 'TypeError',
+  expected: 'undefined',
+  actual: 'undefined'
+}
+
+stderr | tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders ChangeReceipt when current step has showReceipt true
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+    at invokeGuardedCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4277:31)
+    at invokeGuardedCallbackAndCatchFirstError (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4291:25)
+    at executeDispatch (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:9041:3) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLDivElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLDivElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLDivElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/dom/dist/events.js:19:20
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/pure.js:107:16
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/act-compat.js:47:24
+    at act (/Users/prasannashinde/Reasoning mode/node_modules/react/cjs/react.development.js:2512:16) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16) {
+  stackStr: 'TypeError: setActiveScenario is not a function\n' +
+    '    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)\n' +
+    '    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)\n' +
+    '    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)\n' +
+    '    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)\n' +
+    '    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)\n' +
+    '    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)\n' +
+    '    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)\n' +
+    '    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)\n' +
+    '    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)\n' +
+    '    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)',
+  nameStr: 'TypeError',
+  expected: 'undefined',
+  actual: 'undefined'
+}
+
+stderr | tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders user message text in a bubble
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+    at invokeGuardedCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4277:31)
+    at invokeGuardedCallbackAndCatchFirstError (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4291:25)
+    at executeDispatch (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:9041:3) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)
+Error: Uncaught [TypeError: setActiveScenario is not a function]
+    at reportException (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:353:9)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLDivElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLDivElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLDivElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/dom/dist/events.js:19:20
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/pure.js:107:16
+    at /Users/prasannashinde/Reasoning mode/node_modules/@testing-library/react/dist/act-compat.js:47:24
+    at act (/Users/prasannashinde/Reasoning mode/node_modules/react/cjs/react.development.js:2512:16) TypeError: setActiveScenario is not a function
+    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)
+    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)
+    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)
+    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16) {
+  stackStr: 'TypeError: setActiveScenario is not a function\n' +
+    '    at handleCardClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:85:5)\n' +
+    '    at onClick (/Users/prasannashinde/Reasoning mode/src/components/DirectedMode.jsx:121:32)\n' +
+    '    at HTMLUnknownElement.callCallback (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4164:14)\n' +
+    '    at HTMLUnknownElement.callTheUserObjectsOperation (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)\n' +
+    '    at innerInvokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)\n' +
+    '    at invokeEventListeners (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)\n' +
+    '    at HTMLUnknownElementImpl._dispatch (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)\n' +
+    '    at HTMLUnknownElementImpl.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)\n' +
+    '    at HTMLUnknownElement.dispatchEvent (/Users/prasannashinde/Reasoning mode/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)\n' +
+    '    at Object.invokeGuardedCallbackDev (/Users/prasannashinde/Reasoning mode/node_modules/react-dom/cjs/react-dom.development.js:4213:16)',
+  nameStr: 'TypeError',
+  expected: 'undefined',
+  actual: 'undefined'
+}
+
+ ❯ tests/phase-4.test.jsx  (14 tests | 4 failed) 166ms
+   ❯ tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders NudgeCard when current step has showNudge true
+     → expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+   ❯ tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders LegendBar when current step has showLayer true
+     → expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+   ❯ tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders ChangeReceipt when current step has showReceipt true
+     → expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+   ❯ tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders user message text in a bubble
+     → Unable to find an element with the text: /Should I let go of 2 under-performers/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"directed-mode-container"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"scenario-cards-view"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mclass[39m=[32m"sc-view-title"[39m
+        [36m>[39m
+          [0mChoose a scenario[0m
+        [36m</h2>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"sc-view-subtitle"[39m
+        [36m>[39m
+          [0mEach journey walks through a real AI response — guided, one send at a time[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scenario-cards-grid"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mAll four elements[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box orange"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-layers"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mFull reasoning layer fires across a hiring decision.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag orange"[39m
+              [36m>[39m
+                [0mAssumption[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag red"[39m
+              [36m>[39m
+                [0mInference[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag blue"[39m
+              [36m>[39m
+                [0mDependency[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag gray"[39m
+              [36m>[39m
+                [0mGap[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mMulti-signal inference[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box red"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-antenna"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mFour inference flags in one response — all from benchmarks.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag red"[39m
+              [36m>[39m
+                [0mInference[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag orange"[39m
+              [36m>[39m
+                [0mAssumption[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mInference + gap[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box red"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-chart-bar"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mSalary benchmarks with key inputs left uncovered.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag red"[39m
+              [36m>[39m
+                [0mInference[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag gray"[39m
+              [36m>[39m
+                [0mGap[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mAssumption + dependency[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box blue"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-git-branch"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mRecommendation that collapses if conditions aren't met.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag orange"[39m
+              [36m>[39m
+                [0mAssumption[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag blue"[39m
+              [36m>[39m
+                [0mDependency[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card span-2"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mClean response[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box gray"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-check"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mFactual definition — no recommendation. Layer stays inactive.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag gray"[39m
+              [36m>[39m
+                [0mNo layer[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"dm-step-bar dm-step-bar-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn active"[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m0[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m1[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m2[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m3[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m4[0m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"dm-step-label"[39m
+        [36m>[39m
+          [0mBefore — polished output, reasoning invisible[0m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ tests/phase-3.test.jsx  (15 tests | 3 failed) 314ms
+   ❯ tests/phase-3.test.jsx > Phase 3 - Directed Mode Structure Tests > DirectedMode renders NudgeCard when current step has showNudge true
+     → expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+   ❯ tests/phase-3.test.jsx > Phase 3 - Directed Mode Structure Tests > DirectedMode renders LegendBar when current step has showLayer true
+     → expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+   ❯ tests/phase-3.test.jsx > Phase 3 - Directed Mode Structure Tests > DirectedMode renders ChangeReceipt when current step has showReceipt true
+     → expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ✓ tests/phase-0.test.js  (4 tests) 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/phase-3.test.jsx > Phase 3 - Directed Mode Structure Tests > DirectedMode renders NudgeCard when current step has showNudge true
+Error: expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ❯ tests/phase-3.test.jsx:123:52
+    121|     const step1Btn = screen.getByRole('button', { name: 'Step 1' });
+    122|     fireEvent.click(step1Btn);
+    123|     expect(container.querySelector('.nudge-card')).toBeInTheDocument();
+       |                                                    ^
+    124|   });
+    125| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/phase-3.test.jsx > Phase 3 - Directed Mode Structure Tests > DirectedMode renders LegendBar when current step has showLayer true
+Error: expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ❯ tests/phase-3.test.jsx:130:52
+    128|     const step2Btn = screen.getByRole('button', { name: 'Step 2' });
+    129|     fireEvent.click(step2Btn);
+    130|     expect(container.querySelector('.legend-bar')).toBeInTheDocument();
+       |                                                    ^
+    131|   });
+    132| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/phase-3.test.jsx > Phase 3 - Directed Mode Structure Tests > DirectedMode renders ChangeReceipt when current step has showReceipt true
+Error: expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ❯ tests/phase-3.test.jsx:137:56
+    135|     const step4Btn = screen.getByRole('button', { name: 'Step 4' });
+    136|     fireEvent.click(step4Btn);
+    137|     expect(container.querySelector('.change-receipt')).toBeInTheDocume…
+       |                                                        ^
+    138|   });
+    139| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders NudgeCard when current step has showNudge true
+Error: expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ❯ tests/phase-4.test.jsx:58:52
+     56|     const step1Btn = screen.getByRole('button', { name: 'Step 1' });
+     57|     fireEvent.click(step1Btn);
+     58|     expect(container.querySelector('.nudge-card')).toBeInTheDocument();
+       |                                                    ^
+     59|   });
+     60| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders LegendBar when current step has showLayer true
+Error: expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ❯ tests/phase-4.test.jsx:67:52
+     65|     const step2Btn = screen.getByRole('button', { name: 'Step 2' });
+     66|     fireEvent.click(step2Btn);
+     67|     expect(container.querySelector('.legend-bar')).toBeInTheDocument();
+       |                                                    ^
+     68|   });
+     69| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders ChangeReceipt when current step has showReceipt true
+Error: expect(received).toBeInTheDocument()
+
+received value must be an HTMLElement or an SVGElement.
+
+ ❯ tests/phase-4.test.jsx:76:56
+     74|     const step4Btn = screen.getByRole('button', { name: 'Step 4' });
+     75|     fireEvent.click(step4Btn);
+     76|     expect(container.querySelector('.change-receipt')).toBeInTheDocume…
+       |                                                        ^
+     77|   });
+     78| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  tests/phase-4.test.jsx > Phase 4 - Scenario Data and DirectedMode Rendering > DirectedMode renders user message text in a bubble
+TestingLibraryElementError: Unable to find an element with the text: /Should I let go of 2 under-performers/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"directed-mode-container"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"scenario-cards-view"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mclass[39m=[32m"sc-view-title"[39m
+        [36m>[39m
+          [0mChoose a scenario[0m
+        [36m</h2>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"sc-view-subtitle"[39m
+        [36m>[39m
+          [0mEach journey walks through a real AI response — guided, one send at a time[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scenario-cards-grid"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mAll four elements[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box orange"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-layers"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mFull reasoning layer fires across a hiring decision.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag orange"[39m
+              [36m>[39m
+                [0mAssumption[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag red"[39m
+              [36m>[39m
+                [0mInference[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag blue"[39m
+              [36m>[39m
+                [0mDependency[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag gray"[39m
+              [36m>[39m
+                [0mGap[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mMulti-signal inference[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box red"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-antenna"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mFour inference flags in one response — all from benchmarks.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag red"[39m
+              [36m>[39m
+                [0mInference[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag orange"[39m
+              [36m>[39m
+                [0mAssumption[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mInference + gap[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box red"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-chart-bar"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mSalary benchmarks with key inputs left uncovered.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag red"[39m
+              [36m>[39m
+                [0mInference[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag gray"[39m
+              [36m>[39m
+                [0mGap[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card "[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mAssumption + dependency[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box blue"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-git-branch"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mRecommendation that collapses if conditions aren't met.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag orange"[39m
+              [36m>[39m
+                [0mAssumption[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag blue"[39m
+              [36m>[39m
+                [0mDependency[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scenario-card span-2"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-row-1"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-title"[39m
+              [36m>[39m
+                [0mClean response[0m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"sc-icon-box gray"[39m
+              [36m>[39m
+                [36m<i[39m
+                  [33mclass[39m=[32m"ti-check"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"sc-desc"[39m
+            [36m>[39m
+              [0mFactual definition — no recommendation. Layer stays inactive.[0m
+            [36m</p>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-tags-row"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"sc-tag gray"[39m
+              [36m>[39m
+                [0mNo layer[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"sc-start-link"[39m
+            [36m>[39m
+              [0m→ Start journey[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"dm-step-bar dm-step-bar-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn active"[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m0[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m1[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m2[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m3[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"dm-step-btn "[39m
+        [36m>[39m
+          [0mStep [0m
+          [0m4[0m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"dm-step-label"[39m
+        [36m>[39m
+          [0mBefore — polished output, reasoning invisible[0m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/phase-4.test.jsx:84:19
+     82|     fireEvent.click(card);
+     83|     // Step 0 user message
+     84|     expect(screen.getByText(/Should I let go of 2 under-performers/)).…
+       |                   ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 4 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: setActiveScenario is not a function
+ ❯ handleCardClick src/components/DirectedMode.jsx:85:5
+     83| 
+     84|   const handleCardClick = (id) => {
+     85|     setActiveScenario(id);
+       |     ^
+     86|     setActiveStep(0);
+     87|     setNotNowClicked(false);
+ ❯ onClick src/components/DirectedMode.jsx:121:32
+ ❯ HTMLUnknownElement.callCallback node_modules/react-dom/cjs/react-dom.development.js:4164:14
+ ❯ HTMLUnknownElement.callTheUserObjectsOperation node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30
+ ❯ innerInvokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25
+ ❯ invokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3
+ ❯ HTMLUnknownElementImpl._dispatch node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9
+ ❯ HTMLUnknownElementImpl.dispatchEvent node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17
+ ❯ HTMLUnknownElement.dispatchEvent node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34
+ ❯ Object.invokeGuardedCallbackDev node_modules/react-dom/cjs/react-dom.development.js:4213:16
+
+This error originated in "tests/phase-4.test.jsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "DirectedMode renders NudgeCard when current step has showNudge true". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: setActiveScenario is not a function
+ ❯ handleCardClick src/components/DirectedMode.jsx:85:5
+     83| 
+     84|   const handleCardClick = (id) => {
+     85|     setActiveScenario(id);
+       |     ^
+     86|     setActiveStep(0);
+     87|     setNotNowClicked(false);
+ ❯ onClick src/components/DirectedMode.jsx:121:32
+ ❯ HTMLUnknownElement.callCallback node_modules/react-dom/cjs/react-dom.development.js:4164:14
+ ❯ HTMLUnknownElement.callTheUserObjectsOperation node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30
+ ❯ innerInvokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25
+ ❯ invokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3
+ ❯ HTMLUnknownElementImpl._dispatch node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9
+ ❯ HTMLUnknownElementImpl.dispatchEvent node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17
+ ❯ HTMLUnknownElement.dispatchEvent node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34
+ ❯ Object.invokeGuardedCallbackDev node_modules/react-dom/cjs/react-dom.development.js:4213:16
+
+This error originated in "tests/phase-4.test.jsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "DirectedMode renders LegendBar when current step has showLayer true". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: setActiveScenario is not a function
+ ❯ handleCardClick src/components/DirectedMode.jsx:85:5
+     83| 
+     84|   const handleCardClick = (id) => {
+     85|     setActiveScenario(id);
+       |     ^
+     86|     setActiveStep(0);
+     87|     setNotNowClicked(false);
+ ❯ onClick src/components/DirectedMode.jsx:121:32
+ ❯ HTMLUnknownElement.callCallback node_modules/react-dom/cjs/react-dom.development.js:4164:14
+ ❯ HTMLUnknownElement.callTheUserObjectsOperation node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30
+ ❯ innerInvokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25
+ ❯ invokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3
+ ❯ HTMLUnknownElementImpl._dispatch node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9
+ ❯ HTMLUnknownElementImpl.dispatchEvent node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17
+ ❯ HTMLUnknownElement.dispatchEvent node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34
+ ❯ Object.invokeGuardedCallbackDev node_modules/react-dom/cjs/react-dom.development.js:4213:16
+
+This error originated in "tests/phase-4.test.jsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "DirectedMode renders ChangeReceipt when current step has showReceipt true". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+TypeError: setActiveScenario is not a function
+ ❯ handleCardClick src/components/DirectedMode.jsx:85:5
+     83| 
+     84|   const handleCardClick = (id) => {
+     85|     setActiveScenario(id);
+       |     ^
+     86|     setActiveStep(0);
+     87|     setNotNowClicked(false);
+ ❯ onClick src/components/DirectedMode.jsx:121:32
+ ❯ HTMLUnknownElement.callCallback node_modules/react-dom/cjs/react-dom.development.js:4164:14
+ ❯ HTMLUnknownElement.callTheUserObjectsOperation node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30
+ ❯ innerInvokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25
+ ❯ invokeEventListeners node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3
+ ❯ HTMLUnknownElementImpl._dispatch node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9
+ ❯ HTMLUnknownElementImpl.dispatchEvent node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17
+ ❯ HTMLUnknownElement.dispatchEvent node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34
+ ❯ Object.invokeGuardedCallbackDev node_modules/react-dom/cjs/react-dom.development.js:4213:16
+
+This error originated in "tests/phase-4.test.jsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "DirectedMode renders user message text in a bubble". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+ Test Files  2 failed | 6 passed (8)
+      Tests  7 failed | 96 passed (103)
+     Errors  4 errors
+   Start at  02:07:36
+   Duration  1.48s (transform 358ms, setup 575ms, collect 1.13s, tests 867ms, environment 3.82s, prepare 942ms)
+

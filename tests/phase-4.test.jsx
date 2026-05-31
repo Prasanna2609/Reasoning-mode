@@ -56,8 +56,14 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
     const card = screen.getByText('All four elements').closest('.scenario-card');
     fireEvent.click(card);
-    const stepBtn = screen.getByRole('button', { name: 'Step 1' });
-    fireEvent.click(stepBtn);
+    
+    // Initial Send
+    fireEvent.click(screen.getByRole('button', { name: 'Send query' }));
+    
+    // Nudge is shown on step 0
+    // Click activate to go to step 1
+    fireEvent.click(screen.getByText('Activate Reasoning Mode'));
+    
     expect(container.querySelector('.nudge-card')).toBeInTheDocument();
     
     scenarios[0].steps[1].showNudge = originalNudge;
@@ -67,8 +73,10 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
     const card = screen.getByText('All four elements').closest('.scenario-card');
     fireEvent.click(card);
-    const step2Btn = screen.getByRole('button', { name: 'Step 1' });
-    fireEvent.click(step2Btn);
+    
+    fireEvent.click(screen.getByRole('button', { name: 'Send query' }));
+    fireEvent.click(screen.getByText('Activate Reasoning Mode'));
+    
     expect(container.querySelector('.legend-bar')).toBeInTheDocument();
   });
 
@@ -76,8 +84,11 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
     const { container } = render(<DirectedMode activeScenario={0} />);
     const card = screen.getByText('All four elements').closest('.scenario-card');
     fireEvent.click(card);
-    const step4Btn = screen.getByRole('button', { name: 'Step 3' });
-    fireEvent.click(step4Btn);
+    
+    fireEvent.click(screen.getByRole('button', { name: 'Send query' }));
+    fireEvent.click(screen.getByText('Activate Reasoning Mode'));
+    fireEvent.click(screen.getByRole('button', { name: 'Send query' }));
+    
     expect(container.querySelector('.change-receipt')).toBeInTheDocument();
   });
 
@@ -85,9 +96,10 @@ describe('Phase 4 - Scenario Data and DirectedMode Rendering', () => {
     render(<DirectedMode activeScenario={0} />);
     const card = screen.getByText('All four elements').closest('.scenario-card');
     fireEvent.click(card);
-    const stepBtn = screen.getByRole('button', { name: 'Step 1' });
-    fireEvent.click(stepBtn);
-    // Step 0 user message is rendered in a bubble when activeStep > 0
+    
+    fireEvent.click(screen.getByRole('button', { name: 'Send query' }));
+    
+    // Step 0 user message is rendered in a bubble when chat has started
     expect(screen.getByText(/What should we prioritize/)).toBeInTheDocument();
   });
 });

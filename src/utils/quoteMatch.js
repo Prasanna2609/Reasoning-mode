@@ -47,13 +47,6 @@ function findMatch(responseText, quote) {
 export function buildHighlightedHTML(responseText, reasoningData = {}) {
   const { inference_flags = [], assumptions = [], dependencies = [] } = reasoningData;
 
-  console.log(
-    'QUOTE MATCH INPUT - responseText length:', responseText?.length,
-    'elements count:',
-    (reasoningData?.inference_flags?.length || 0) +
-    (reasoningData?.assumptions?.length || 0) +
-    (reasoningData?.dependencies?.length || 0)
-  );
 
   // Flatten all elements with css class
   const elements = [
@@ -71,9 +64,7 @@ export function buildHighlightedHTML(responseText, reasoningData = {}) {
   const unmatched = [];
 
   for (const el of elements) {
-    console.log('Attempting match for quote:', el.quote?.slice(0, 50));
     const match = findMatch(responseText, el.quote || '');
-    console.log('Match result tier:', match?.tier || 'none');
     if (match.found) {
       matched.push({ ...el, start: match.start, end: match.end, tier: match.tier });
     } else {

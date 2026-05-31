@@ -191,7 +191,7 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
               gaps: gaps.length > 0 ? gaps : null,
             }),
           ]);
-        } else if (getDismissalCount() < 3) {
+        } else if (getDismissalCount() < 10) {
           const nudgedMsg = makeMessage('assistant', genResult.response, {
             isHighlighted: false,
             html,
@@ -273,7 +273,6 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
     }
 
     const { html, unmatched } = buildHighlightedHTML(genResult.response, analysisResult);
-    console.log('HTML output length:', html?.length, 'unmatched count:', unmatched?.length);
     const gaps = analysisResult.gaps || [];
 
     if (isReasoningModeOn) {
@@ -287,7 +286,7 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
           gaps: gaps.length > 0 ? gaps : null,
         }),
       ]);
-    } else if (getDismissalCount() < 3) {
+    } else if (getDismissalCount() < 10) {
       // Layer OFF and dismissal budget remains — show nudge
       const nudgedMsg = makeMessage('assistant', genResult.response, {
         isHighlighted: false,
@@ -301,11 +300,24 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
       // After 500ms trigger the nudge card
       nudgeTimerRef.current = setTimeout(() => {
         updateMessage(nudgedMsg.id, { showNudge: true });
+        setTimeout(() => {
+          const container = document.querySelector('.live-messages');
+          if (container) {
+            container.scrollTop = container.scrollHeight;
+          }
+        }, 100);
       }, 500);
     } else {
       // Dismissal budget exhausted — plain message
       setMessages(prev => [...prev, makeMessage('assistant', genResult.response)]);
     }
+
+    setTimeout(() => {
+      const container = document.querySelector('.live-messages');
+      if (container) {
+        container.scrollTop = container.scrollHeight;
+      }
+    }, 100);
   }
 
   function handleNudgeActivate(msgId, msgHtml, msgReasoningData, msgGaps) {
@@ -345,13 +357,13 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
     if (!reasoningData) return [];
     const items = [];
     (reasoningData.inference_flags || []).forEach(f =>
-      items.push({ type: 'inference', label: f.quote?.slice(0, 50) || 'Inference', text: `Basis: ${f.basis || '—'} | Missing: ${f.missing || '—'}` })
+      items.push({ type: 'inference', label: f.quote || 'Inference', text: `Basis: ${f.basis || '—'} | Missing: ${f.missing || '—'}` })
     );
     (reasoningData.assumptions || []).forEach(a =>
-      items.push({ type: 'assumption', label: a.quote?.slice(0, 50) || 'Assumption', text: `Fills: ${a.fills || '—'} | If wrong: ${a.if_wrong || '—'}` })
+      items.push({ type: 'assumption', label: a.quote || 'Assumption', text: `Fills: ${a.fills || '—'} | If wrong: ${a.if_wrong || '—'}` })
     );
     (reasoningData.dependencies || []).forEach(d =>
-      items.push({ type: 'dependency', label: d.quote?.slice(0, 50) || 'Dependency', text: `Conditions: ${(d.conditions || []).join(', ') || '—'}` })
+      items.push({ type: 'dependency', label: d.quote || 'Dependency', text: `Conditions: ${(d.conditions || []).join(', ') || '—'}` })
     );
     return items;
   }
@@ -419,7 +431,6 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
 
               {msg.role === 'assistant' && msg.isHighlighted && (
                 <>
-                  {console.log('Message html preview:', msg.html?.slice(0, 100))}
                   <MessageBubble role="assistant">
                     <HighlightedResponse html={msg.html} />
                     {hasReasoningData && msg.reasoningData?.gaps?.length > 0 && (
