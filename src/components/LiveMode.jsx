@@ -63,6 +63,11 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
   const [isAnalysing, setIsAnalysing] = useState(false);
 
   const [isReasoningModeOn, setIsReasoningModeOn] = useState(() => getReasoningMode());
+  const [modelMenuOpen, setModelMenuOpen] = useState(false);
+  const [selectedModel, setSelectedModel] = useState('Sonnet 4.6');
+  const [levelMenuOpen, setLevelMenuOpen] = useState(false);
+  const [reasoningLevel, setReasoningLevel] = useState('High');
+  const [toastMessage, setToastMessage] = useState(null);
 
   const messagesEndRef = useRef(null);
   const nudgeTimerRef = useRef(null);
@@ -78,6 +83,8 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
     const nextVal = !isReasoningModeOn;
     setIsReasoningModeOn(nextVal);
     setReasoningModeStorage(nextVal);
+    setToastMessage(`Reasoning mode is ${nextVal ? 'ON' : 'OFF'}`);
+    setTimeout(() => setToastMessage(null), 3000);
   }
 
   function updateMessage(id, updates) {
@@ -472,40 +479,195 @@ const LiveMode = forwardRef(function LiveMode(props, ref) {
 
       {/* Input bar */}
       <div className="live-input-bar">
-        <button
-          className={`live-mode-toggle ${isReasoningModeOn ? 'active' : ''}`}
-          onClick={toggleReasoningMode}
-          id="reasoning-mode-toggle"
-          aria-label={isReasoningModeOn ? 'Reasoning Mode ON' : 'Reasoning Mode OFF'}
-        >
-          {isReasoningModeOn ? 'Reasoning Mode ON' : 'Reasoning Mode OFF'}
-        </button>
+        <div className="input-container" style={{ background: '#111', border: '1px solid #2a2a2a', borderRadius: '14px', padding: '10px 14px' }}>
+          {/* Row 1 */}
+          <div>
+            <textarea
+              id="live-chat-input"
+              ref={textareaRef}
+              placeholder="Write a message..."
+              value={inputValue}
+              rows={1}
+              onChange={e => {
+                setInputValue(e.target.value);
+                autoResize(e.target);
+              }}
+              onKeyDown={handleKeyDown}
+              aria-label="Chat input"
+              style={{
+                width: '100%', border: 'none', background: 'transparent',
+                color: 'var(--text)', fontSize: '14px', lineHeight: '1.5',
+                minHeight: '44px', maxHeight: '160px', resize: 'none', outline: 'none'
+              }}
+            />
+          </div>
+          {/* Row 2 */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px' }}>
+            {/* LEFT */}
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button style={{
+                width: '28px', height: '28px', borderRadius: '50%', background: '#1e1e1e',
+                border: '1px solid #2a2a2a', color: '#888', fontSize: '16px',
+                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
+              }} aria-label="Decorative plus" aria-hidden="true">+</button>
+              <button style={{
+                width: '28px', height: '28px', borderRadius: '6px', background: 'rgba(74,158,255,0.15)',
+                border: '1px solid rgba(74,158,255,0.25)', color: '#4A9EFF',
+                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
+              }} aria-label="Decorative stack" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 11v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9" />
+                  <path d="M4 11h16" />
+                  <path d="M6 7h12" />
+                  <path d="M8 3h8" />
+                </svg>
+              </button>
+            </div>
+            {/* RIGHT */}
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              
+              {/* 1. Prominent Toggle */}
+              <button 
+                onClick={toggleReasoningMode}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', background: 'transparent', border: 'none', padding: 0 }}
+                aria-label={isReasoningModeOn ? 'Reasoning Mode ON' : 'Reasoning Mode OFF'}
+              >
+                <div style={{
+                  width: '32px', height: '18px', borderRadius: '18px',
+                  background: isReasoningModeOn ? 'var(--cl)' : '#444',
+                  position: 'relative', transition: 'background 0.2s'
+                }}>
+                  <div style={{
+                    width: '14px', height: '14px', borderRadius: '50%', background: 'white',
+                    position: 'absolute', top: '2px', left: isReasoningModeOn ? '16px' : '2px',
+                    transition: 'left 0.2s', boxShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                  }} />
+                </div>
+                <span style={{ 
+                  fontSize: '13px', 
+                  color: isReasoningModeOn ? 'var(--cl)' : '#888', 
+                  fontWeight: 500,
+                  fontFamily: "'Plus Jakarta Sans', sans-serif" 
+                }}>
+                  Reasoning Mode
+                </span>
+              </button>
 
-        <textarea
-          id="live-chat-input"
-          ref={textareaRef}
-          className="live-input"
-          placeholder="Ask anything… (Shift+Enter for newline)"
-          value={inputValue}
-          rows={1}
-          onChange={e => {
-            setInputValue(e.target.value);
-            autoResize(e.target);
-          }}
-          onKeyDown={handleKeyDown}
-          aria-label="Chat input"
-        />
+              {/* 2. Model Dropdown */}
+              <div style={{ position: 'relative' }}>
+                <button
+                  onClick={() => { setModelMenuOpen(!modelMenuOpen); setLevelMenuOpen(false); }}
+                  style={{
+                    background: 'transparent', border: 'none', color: '#888',
+                    fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px'
+                  }}
+                >
+                  {selectedModel} 
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                {modelMenuOpen && (
+                  <div style={{
+                    position: 'absolute', bottom: '100%', right: '0', marginBottom: '8px',
+                    background: '#1e1e1e', border: '1px solid #2a2a2a', borderRadius: '8px',
+                    padding: '4px', display: 'flex', flexDirection: 'column', gap: '2px', minWidth: '100px', zIndex: 10
+                  }}>
+                    {['Sonnet 4.6', 'Opus 4.6', 'Opus 4.7', 'Haiku 4.5'].map(opt => (
+                      <button key={opt}
+                        onClick={() => { setSelectedModel(opt); setModelMenuOpen(false); }}
+                        style={{
+                          background: 'transparent', border: 'none', color: '#ccc', textAlign: 'left',
+                          padding: '6px 8px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px'
+                        }}
+                        onMouseEnter={e => e.target.style.background = '#2a2a2a'}
+                        onMouseLeave={e => e.target.style.background = 'transparent'}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-        <button
-          id="live-send-btn"
-          className="live-send-btn"
-          onClick={handleSend}
-          disabled={isGenerating || !inputValue.trim()}
-          aria-label="Send message"
-        >
-          Send
-        </button>
+              {/* 3. Reasoning Level Dropdown */}
+              <div style={{ position: 'relative' }}>
+                <button
+                  onClick={() => { setLevelMenuOpen(!levelMenuOpen); setModelMenuOpen(false); }}
+                  style={{
+                    background: 'transparent', border: 'none', color: '#888',
+                    fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px'
+                  }}
+                >
+                  {reasoningLevel} 
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                {levelMenuOpen && (
+                  <div style={{
+                    position: 'absolute', bottom: '100%', right: '0', marginBottom: '8px',
+                    background: '#1e1e1e', border: '1px solid #2a2a2a', borderRadius: '8px',
+                    padding: '4px', display: 'flex', flexDirection: 'column', gap: '2px', minWidth: '100px', zIndex: 10
+                  }}>
+                    {['Low', 'Low-Medium', 'High', 'Max'].map(opt => (
+                      <button key={opt}
+                        onClick={() => { setReasoningLevel(opt); setLevelMenuOpen(false); }}
+                        style={{
+                          background: 'transparent', border: 'none', color: '#ccc', textAlign: 'left',
+                          padding: '6px 8px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px'
+                        }}
+                        onMouseEnter={e => e.target.style.background = '#2a2a2a'}
+                        onMouseLeave={e => e.target.style.background = 'transparent'}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* 4. Mic button */}
+              <button style={{
+                background: 'transparent', border: 'none', color: '#888', 
+                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                padding: '4px'
+              }} aria-label="Decorative mic" aria-hidden="true">
+                <i className="ti-microphone" style={{ fontSize: '20px' }}></i>
+              </button>
+              
+              {/* 5. Send button */}
+              <button
+                id="live-send-btn"
+                onClick={handleSend}
+                disabled={isGenerating || !inputValue.trim()}
+                style={{
+                  width: '34px', height: '34px', borderRadius: '10px',
+                  background: inputValue.trim() ? 'var(--cl)' : '#444',
+                  color: inputValue.trim() ? 'white' : '#888',
+                  border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: (isGenerating || !inputValue.trim()) ? 'default' : 'pointer'
+                }}
+                aria-label="Send message"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="19" x2="12" y2="5"></line>
+                  <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      {toastMessage && (
+        <div style={{
+          position: 'fixed', top: '24px', right: '24px',
+          background: 'rgba(222, 115, 86, 0.95)', color: 'white',
+          padding: '12px 24px', borderRadius: '8px',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.3)', zIndex: 9999,
+          fontSize: '14px', fontWeight: 600,
+          fontFamily: "'Plus Jakarta Sans', sans-serif"
+        }}>
+          {toastMessage}
+        </div>
+      )}
     </div>
   );
 });
