@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.DEV 
   ? '/api-proxy/openai/v1' 
   : 'https://api.groq.com/openai/v1';
-const MODEL = 'llama-3.3-70b-versatile';
+const MODEL = 'qwen/qwen3.8-27b';
 
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 
